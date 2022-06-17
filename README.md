@@ -30,7 +30,7 @@ bookslist list [read|upcoming]
 
 ### Set a book as read
 
-When you rad a book and want to mark it as such, use the `read` command.
+When you read a book and want to mark it as such, use the `read` command.
 
 ```shell
 bookslist read 978123456789
