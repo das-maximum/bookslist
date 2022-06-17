@@ -1,5 +1,7 @@
 package de.quinesoft.bookslist.cli
 
+import de.quinesoft.bookslist.biz.BookService
+
 fun parseCommand(arguments: Array<String>): Command {
     val separated = arguments.map { it.trim() }
 
@@ -17,35 +19,35 @@ fun parseCommand(arguments: Array<String>): Command {
 }
 
 sealed interface Command {
-    fun run()
+    fun run(service: BookService)
 }
 
 class AddCommand(private val isbn: String) : Command {
-    override fun run() {
+    override fun run(service: BookService) {
         println("Adding $isbn")
     }
 }
 
 class ListCommand(private val subcommand: String) : Command {
-    override fun run() {
+    override fun run(service: BookService) {
         println("Listing $subcommand")
     }
 }
 
 class ReadCommand(private val isbnOrId: String) : Command {
-    override fun run() {
+    override fun run(service: BookService) {
         println("Setting $isbnOrId to read")
     }
 }
 
 class SearchCommand(private val term: String) : Command {
-    override fun run() {
+    override fun run(service: BookService) {
         println("Searching for $term")
     }
 }
 
 class UnknownCommand(private val msg: String) : Command {
-    override fun run() {
+    override fun run(service: BookService) {
         println(msg)
     }
 }
