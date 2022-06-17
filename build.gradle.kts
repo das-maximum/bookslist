@@ -6,13 +6,14 @@ plugins {
 }
 
 group = "de.quinesoft"
-version = "1.0-SNAPSHOT"
+version = "0.1"
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
+    implementation("io.kotest:kotest-runner-junit5-jvm:5.3.0")
     testImplementation(kotlin("test"))
 }
 
