@@ -24,7 +24,10 @@ sealed interface Command {
 
 class AddCommand(private val isbn: String) : Command {
     override fun run(service: BookService) {
-        println("Adding $isbn")
+        val book = service.createBook(isbn)
+        val title = book.map { it -> it.title }.orElseGet { "n/a" }
+
+        println("Adding $isbn: $title")
     }
 }
 

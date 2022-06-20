@@ -10,5 +10,9 @@ class OpenLibraryLookupServiceSpec : WordSpec({
         "parse the response correctly" {
             sut.lookupTitle("9783960091394") shouldBe "Projekt Unicorn"
         }
+
+        "also parse response correctly" {
+            sut.lookupTitle("9781950508402") shouldBe "DevOps Handbook, Second Edition"
+        }
     }
 })

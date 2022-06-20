@@ -8,7 +8,7 @@ class BookFileDAO: BookDAO {
     val basePath = Paths.get("~/.bookslist/")
 
     override fun store(book: Book) {
-        TODO("Not yet implemented")
+        // TODO
     }
 
     override fun getAll(): List<Book> {
@@ -24,6 +24,6 @@ class BookFileDAO: BookDAO {
     }
 
     override fun latestId(): Int {
-        TODO("Not yet implemented")
+        return 1 // TODO
     }
 }
