@@ -1,14 +1,17 @@
 package de.quinesoft.bookslist.biz
 
 import de.quinesoft.bookslist.domain.Book
+import io.kotest.common.runBlocking
 
 class BookService(private val dao: BookDAO, private val lookupService: BookLookupService) {
 
     fun createBook(isbn: String, alreadyRead: Boolean = false) {
-        val title = lookupService.lookupTitle(isbn)
-        val latestId = dao.latestId()
-        val newBook = Book(latestId, isbn, title, read = alreadyRead)
-        dao.store(newBook)
+        runBlocking {
+            val title = lookupService.lookupTitle(isbn)
+            val latestId = dao.latestId()
+            val newBook = Book(latestId, isbn, title, read = alreadyRead)
+            dao.store(newBook)
+        }
     }
 
     fun markBookAsRead(id: Int) {

@@ -1,5 +1,5 @@
 package de.quinesoft.bookslist.biz
 
 interface BookLookupService {
-    fun lookupTitle(isbn: String): String
+    suspend fun lookupTitle(isbn: String): String?
 }
